@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F92A35E914BB0D9D0006B76A /* NSBitmapImageRep+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F92A35E814BB0D9D0006B76A /* NSBitmapImageRep+Additions.m */; };
+		F92A35EC14BB222B0006B76A /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = F92A35EB14BB222B0006B76A /* License.txt */; };
+		F92A35F214BB24AD0006B76A /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F92A35F114BB24AD0006B76A /* README.markdown */; };
+		F99062D714BA17610076D221 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99062D614BA17610076D221 /* Cocoa.framework */; };
+		F99062E114BA17610076D221 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F99062DF14BA17610076D221 /* InfoPlist.strings */; };
+		F99062E314BA17610076D221 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F99062E214BA17610076D221 /* main.m */; };
+		F99062E714BA17610076D221 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F99062E514BA17610076D221 /* Credits.rtf */; };
+		F99062EA14BA17610076D221 /* SLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F99062E914BA17610076D221 /* SLAppDelegate.m */; };
+		F99062ED14BA17610076D221 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F99062EB14BA17610076D221 /* MainMenu.xib */; };
+		F99062F514BA1A300076D221 /* SLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99062F414BA1A300076D221 /* SLMainWindowController.m */; };
+		F99062FB14BA1C8C0076D221 /* SLSlasherView.m in Sources */ = {isa = PBXBuildFile; fileRef = F99062FA14BA1C8C0076D221 /* SLSlasherView.m */; };
+		F990630F14BA252B0076D221 /* NSImageView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F990630E14BA252A0076D221 /* NSImageView+Additions.m */; };
+		F990631B14BA38EE0076D221 /* SLSlasher.m in Sources */ = {isa = PBXBuildFile; fileRef = F990631A14BA38EE0076D221 /* SLSlasher.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F92A35E714BB0D9D0006B76A /* NSBitmapImageRep+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBitmapImageRep+Additions.h"; sourceTree = "<group>"; };
+		F92A35E814BB0D9D0006B76A /* NSBitmapImageRep+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBitmapImageRep+Additions.m"; sourceTree = "<group>"; };
+		F92A35EB14BB222B0006B76A /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		F92A35F114BB24AD0006B76A /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = SOURCE_ROOT; };
+		F99062D214BA17610076D221 /* Slasher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slasher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F99062D614BA17610076D221 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		F99062D914BA17610076D221 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		F99062DA14BA17610076D221 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F99062DB14BA17610076D221 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F99062DE14BA17610076D221 /* Slasher-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Slasher-Info.plist"; sourceTree = "<group>"; };
+		F99062E014BA17610076D221 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F99062E214BA17610076D221 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F99062E414BA17610076D221 /* Slasher-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Slasher-Prefix.pch"; sourceTree = "<group>"; };
+		F99062E614BA17610076D221 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		F99062E814BA17610076D221 /* SLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLAppDelegate.h; sourceTree = "<group>"; };
+		F99062E914BA17610076D221 /* SLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLAppDelegate.m; sourceTree = "<group>"; };
+		F99062EC14BA17610076D221 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F99062F314BA1A300076D221 /* SLMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMainWindowController.h; sourceTree = "<group>"; };
+		F99062F414BA1A300076D221 /* SLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMainWindowController.m; sourceTree = "<group>"; };
+		F99062F914BA1C8C0076D221 /* SLSlasherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlasherView.h; sourceTree = "<group>"; };
+		F99062FA14BA1C8C0076D221 /* SLSlasherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlasherView.m; sourceTree = "<group>"; };
+		F990630D14BA252A0076D221 /* NSImageView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImageView+Additions.h"; sourceTree = "<group>"; };
+		F990630E14BA252A0076D221 /* NSImageView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImageView+Additions.m"; sourceTree = "<group>"; };
+		F990631914BA38EE0076D221 /* SLSlasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlasher.h; sourceTree = "<group>"; };
+		F990631A14BA38EE0076D221 /* SLSlasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlasher.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F99062CF14BA17610076D221 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F99062D714BA17610076D221 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F99062C714BA17610076D221 = {
+			isa = PBXGroup;
+			children = (
+				F99062DC14BA17610076D221 /* Slasher */,
+				F99062D514BA17610076D221 /* Frameworks */,
+				F99062D314BA17610076D221 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F99062D314BA17610076D221 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F99062D214BA17610076D221 /* Slasher.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F99062D514BA17610076D221 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F99062D614BA17610076D221 /* Cocoa.framework */,
+				F99062D814BA17610076D221 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F99062D814BA17610076D221 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F99062D914BA17610076D221 /* AppKit.framework */,
+				F99062DA14BA17610076D221 /* CoreData.framework */,
+				F99062DB14BA17610076D221 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		F99062DC14BA17610076D221 /* Slasher */ = {
+			isa = PBXGroup;
+			children = (
+				F99062E814BA17610076D221 /* SLAppDelegate.h */,
+				F99062E914BA17610076D221 /* SLAppDelegate.m */,
+				F99062F314BA1A300076D221 /* SLMainWindowController.h */,
+				F99062F414BA1A300076D221 /* SLMainWindowController.m */,
+				F99062F914BA1C8C0076D221 /* SLSlasherView.h */,
+				F99062FA14BA1C8C0076D221 /* SLSlasherView.m */,
+				F990630D14BA252A0076D221 /* NSImageView+Additions.h */,
+				F990630E14BA252A0076D221 /* NSImageView+Additions.m */,
+				F990631914BA38EE0076D221 /* SLSlasher.h */,
+				F990631A14BA38EE0076D221 /* SLSlasher.m */,
+				F92A35E714BB0D9D0006B76A /* NSBitmapImageRep+Additions.h */,
+				F92A35E814BB0D9D0006B76A /* NSBitmapImageRep+Additions.m */,
+				F99062EB14BA17610076D221 /* MainMenu.xib */,
+				F99062DD14BA17610076D221 /* Supporting Files */,
+			);
+			path = Slasher;
+			sourceTree = "<group>";
+		};
+		F99062DD14BA17610076D221 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F92A35F114BB24AD0006B76A /* README.markdown */,
+				F92A35EB14BB222B0006B76A /* License.txt */,
+				F99062DE14BA17610076D221 /* Slasher-Info.plist */,
+				F99062DF14BA17610076D221 /* InfoPlist.strings */,
+				F99062E214BA17610076D221 /* main.m */,
+				F99062E414BA17610076D221 /* Slasher-Prefix.pch */,
+				F99062E514BA17610076D221 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F99062D114BA17610076D221 /* Slasher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F99062F014BA17610076D221 /* Build configuration list for PBXNativeTarget "Slasher" */;
+			buildPhases = (
+				F99062CE14BA17610076D221 /* Sources */,
+				F99062CF14BA17610076D221 /* Frameworks */,
+				F99062D014BA17610076D221 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Slasher;
+			productName = Slasher;
+			productReference = F99062D214BA17610076D221 /* Slasher.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F99062C914BA17610076D221 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = F99062CC14BA17610076D221 /* Build configuration list for PBXProject "Slasher" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F99062C714BA17610076D221;
+			productRefGroup = F99062D314BA17610076D221 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F99062D114BA17610076D221 /* Slasher */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F99062D014BA17610076D221 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F99062E114BA17610076D221 /* InfoPlist.strings in Resources */,
+				F99062E714BA17610076D221 /* Credits.rtf in Resources */,
+				F99062ED14BA17610076D221 /* MainMenu.xib in Resources */,
+				F92A35EC14BB222B0006B76A /* License.txt in Resources */,
+				F92A35F214BB24AD0006B76A /* README.markdown in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F99062CE14BA17610076D221 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F99062E314BA17610076D221 /* main.m in Sources */,
+				F99062EA14BA17610076D221 /* SLAppDelegate.m in Sources */,
+				F99062F514BA1A300076D221 /* SLMainWindowController.m in Sources */,
+				F99062FB14BA1C8C0076D221 /* SLSlasherView.m in Sources */,
+				F990630F14BA252B0076D221 /* NSImageView+Additions.m in Sources */,
+				F990631B14BA38EE0076D221 /* SLSlasher.m in Sources */,
+				F92A35E914BB0D9D0006B76A /* NSBitmapImageRep+Additions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F99062DF14BA17610076D221 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F99062E014BA17610076D221 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F99062E514BA17610076D221 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F99062E614BA17610076D221 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		F99062EB14BA17610076D221 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F99062EC14BA17610076D221 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F99062EE14BA17610076D221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F99062EF14BA17610076D221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F99062F114BA17610076D221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Slasher/Slasher-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				INFOPLIST_FILE = "Slasher/Slasher-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F99062F214BA17610076D221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Slasher/Slasher-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				INFOPLIST_FILE = "Slasher/Slasher-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F99062CC14BA17610076D221 /* Build configuration list for PBXProject "Slasher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F99062EE14BA17610076D221 /* Debug */,
+				F99062EF14BA17610076D221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F99062F014BA17610076D221 /* Build configuration list for PBXNativeTarget "Slasher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F99062F114BA17610076D221 /* Debug */,
+				F99062F214BA17610076D221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F99062C914BA17610076D221 /* Project object */;
+}
