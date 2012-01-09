@@ -8,7 +8,7 @@ you're not interested in the source code, you can [download a build][1] instead.
 
 ##License
 
-Copyright &copy 2012, Curtis Jones <curtis@curtisjones.us>
+Copyright &copy; 2012, Curtis Jones (curtis@curtisjones.us)
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
