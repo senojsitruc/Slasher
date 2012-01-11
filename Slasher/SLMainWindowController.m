@@ -130,17 +130,16 @@ static SLMainWindowController *gController;
 	else
 		return;
 	
-	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
-	openPanel.canChooseFiles = FALSE;
-	openPanel.canChooseDirectories = TRUE;
-	openPanel.allowsMultipleSelection = FALSE;
+	NSSavePanel *savePanel = [NSSavePanel savePanel];
+	savePanel.nameFieldStringValue = [mSlasherView.fileName stringByDeletingPathExtension];
+	savePanel.canCreateDirectories = TRUE;
 	
-	[openPanel beginSheetModalForWindow:mWindow completionHandler:^ (NSInteger result) {
+	[savePanel beginSheetModalForWindow:mWindow completionHandler:^ (NSInteger result) {
 		if (NSFileHandlingPanelOKButton == result) {
 			for (NSUInteger row = 0; row < mRowsNum; ++row) {
 				for (NSUInteger col = 0; col < mColsNum; ++col) {
-					NSString *filename = [NSString stringWithFormat:@"slasher-%lu-%lu.%@", row, col, extension];
-					[[slasher dataForRow:row andCol:col ofType:formatType] writeToFile:[openPanel.directoryURL.path stringByAppendingPathComponent:filename] atomically:TRUE];
+					NSString *filename = [NSString stringWithFormat:@"%@-%lu-%lu.%@", savePanel.nameFieldStringValue, row, col, extension];
+					[[slasher dataForRow:row andCol:col ofType:formatType] writeToFile:[savePanel.directoryURL.path stringByAppendingPathComponent:filename] atomically:TRUE];
 				}
 			}
 		}

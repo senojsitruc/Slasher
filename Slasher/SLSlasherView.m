@@ -13,6 +13,8 @@
 @implementation SLSlasherView
 
 @synthesize imageCell = mImageCell;
+@synthesize filePath = mFilePath;
+@synthesize fileName = mFileName;
 
 - (void)drawRect:(NSRect)rect
 {
@@ -55,6 +57,24 @@
 	
 	// restore previous state
 	CGContextRestoreGState(context);
+}
+
+/**
+ *
+ *
+ */
+- (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
+{
+	NSPasteboard *pboard = [sender draggingPasteboard];
+	
+	NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
+	
+	if ([files count]) {
+		mFilePath = [files objectAtIndex:0];
+		mFileName = [mFilePath lastPathComponent];
+	}
+	
+	return [super performDragOperation:sender];
 }
 
 @end

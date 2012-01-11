@@ -9,7 +9,14 @@
 #import <AppKit/AppKit.h>
 
 @interface SLSlasherView : NSImageView
+{
+@protected
+	NSString *mFilePath;
+	NSString *mFileName;
+}
 
 @property (assign) IBOutlet NSImageCell *imageCell;
+@property (readonly, strong) NSString *filePath;
+@property (readonly, strong) NSString *fileName;
 
 @end
