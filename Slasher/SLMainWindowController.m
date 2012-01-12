@@ -7,8 +7,11 @@
 //
 
 #import "SLMainWindowController.h"
+#import "SLAppDelegate.h"
 #import "SLSlasher.h"
 #import "SLSlasherView.h"
+#import "NSThread+Additions.h"
+#import <math.h>
 
 static SLMainWindowController *gController;
 
@@ -119,8 +122,10 @@ static SLMainWindowController *gController;
 {
 	SLSlasher *slasher = [[SLSlasher alloc] initWithImage:mSlasherView.image rows:mRowsNum cols:mColsNum];
 	NSBitmapImageFileType formatType;
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	NSString *formatStr = mFormatBtn.titleOfSelectedItem;
 	NSString *extension = nil;
+	NSString *nameFormat = nil;
 	
 	     if ([formatStr isEqualToString:@"BMP" ]) { formatType = NSBMPFileType;  extension = @"bmp";  }
 	else if ([formatStr isEqualToString:@"GIF" ]) { formatType = NSGIFFileType;  extension = @"gif";  }
@@ -130,18 +135,49 @@ static SLMainWindowController *gController;
 	else
 		return;
 	
+	// the format of the output file name includes the "x" and "y" coordinates. zero-pad those 
+	// coordinate numbers to the most appropriate magnitude.
+	{
+		NSInteger orders = 1 + log10(MAX(mRowsNum, mColsNum));
+		nameFormat = [NSString stringWithFormat:@"%%@-%%0%ldlu-%%0%ldlu.%%@", orders, orders];
+	}
+	
 	NSSavePanel *savePanel = [NSSavePanel savePanel];
 	savePanel.nameFieldStringValue = [mSlasherView.fileName stringByDeletingPathExtension];
 	savePanel.canCreateDirectories = TRUE;
 	
 	[savePanel beginSheetModalForWindow:mWindow completionHandler:^ (NSInteger result) {
 		if (NSFileHandlingPanelOKButton == result) {
-			for (NSUInteger row = 0; row < mRowsNum; ++row) {
-				for (NSUInteger col = 0; col < mColsNum; ++col) {
-					NSString *filename = [NSString stringWithFormat:@"%@-%lu-%lu.%@", savePanel.nameFieldStringValue, row, col, extension];
-					[[slasher dataForRow:row andCol:col ofType:formatType] writeToFile:[savePanel.directoryURL.path stringByAppendingPathComponent:filename] atomically:TRUE];
+			NSString *path = savePanel.directoryURL.path;
+			NSString *namePrefix = savePanel.nameFieldStringValue;
+			
+			[NSThread performBlockInBackground:^{
+				NSDate *lastNotification = [NSDate date];
+				
+				[[NSThread mainThread] performBlock:^{
+					[nc postNotificationName:SLNotificationSlashingStarted object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:(mColsNum*mRowsNum)], @"total", nil]];
+				}];
+				
+				for (NSUInteger row = 0; row < mRowsNum; ++row) {
+					for (NSUInteger col = 0; col < mColsNum; ++col) {
+						@autoreleasepool {
+							NSString *filename = [NSString stringWithFormat:nameFormat, namePrefix, row, col, extension];
+							[[slasher dataForRow:row andCol:col ofType:formatType] writeToFile:[path stringByAppendingPathComponent:filename] atomically:TRUE];
+							
+							if ([lastNotification timeIntervalSinceNow] < 0.5) {
+								lastNotification = [NSDate date];
+								[[NSThread mainThread] performBlock:^{
+									[nc postNotificationName:SLNotificationSlashingUpdated object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:((row*mColsNum)+col)], @"count", nil]];
+								}];
+							}
+						}
+					}
 				}
-			}
+				
+				[[NSThread mainThread] performBlock:^{
+					[nc postNotificationName:SLNotificationSlashingStopped object:self];
+				}];
+			}];
 		}
 	}];
 }

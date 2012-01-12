@@ -81,10 +81,10 @@
 	NSUInteger lastColWidthInPixels = (mBitmapImage.size.width - (colWidthInPixels*(mCols-1)));
 	NSUInteger lastRowHeightInPixels = (mBitmapImage.size.height - (rowHeightInPixels*(mRows-1)));
 	
-	for (NSUInteger col = 0; col < mCols; ++col) {
+	for (NSUInteger row = 0; row < mRows; ++row) {
 		unsigned char *tmpBitmapPtr = bitmapPtr;
 		
-		for (NSUInteger row = 0; row < mRows; ++row) {
+		for (NSUInteger col = 0; col < mCols; ++col) {
 			currentArea->data = tmpBitmapPtr;
 			currentArea->pixelsWide = col < mCols - 1 ? colWidthInPixels : lastColWidthInPixels;
 			currentArea->pixelsHigh = row < mRows - 1 ? rowHeightInPixels : lastRowHeightInPixels;
@@ -152,7 +152,7 @@
 	unsigned char *slicePtr = sliceRep.bitmapData;
 	unsigned char *dataPtr = area->data;
 	
-	for (NSUInteger row = 0; row < area->pixelsHigh; ++row, slicePtr+=area->colWidthInBytes, dataPtr+=imageWidthInBytes)
+	for (NSUInteger _row = 0; _row < area->pixelsHigh; ++_row, slicePtr+=area->colWidthInBytes, dataPtr+=imageWidthInBytes)
 		memcpy(slicePtr, dataPtr, area->colWidthInBytes);
 	
 	return sliceRep;

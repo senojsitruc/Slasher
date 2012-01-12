@@ -20,6 +20,7 @@
 		F99062FB14BA1C8C0076D221 /* SLSlasherView.m in Sources */ = {isa = PBXBuildFile; fileRef = F99062FA14BA1C8C0076D221 /* SLSlasherView.m */; };
 		F990630F14BA252B0076D221 /* NSImageView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F990630E14BA252A0076D221 /* NSImageView+Additions.m */; };
 		F990631B14BA38EE0076D221 /* SLSlasher.m in Sources */ = {isa = PBXBuildFile; fileRef = F990631A14BA38EE0076D221 /* SLSlasher.m */; };
+		F9DDE9CB14BF29A80037E300 /* NSThread+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DDE9CA14BF29A80037E300 /* NSThread+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		F990630E14BA252A0076D221 /* NSImageView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImageView+Additions.m"; sourceTree = "<group>"; };
 		F990631914BA38EE0076D221 /* SLSlasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlasher.h; sourceTree = "<group>"; };
 		F990631A14BA38EE0076D221 /* SLSlasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlasher.m; sourceTree = "<group>"; };
+		F9DDE9C914BF29A80037E300 /* NSThread+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+Additions.h"; sourceTree = "<group>"; };
+		F9DDE9CA14BF29A80037E300 /* NSThread+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +110,10 @@
 				F99062F414BA1A300076D221 /* SLMainWindowController.m */,
 				F99062F914BA1C8C0076D221 /* SLSlasherView.h */,
 				F99062FA14BA1C8C0076D221 /* SLSlasherView.m */,
-				F990630D14BA252A0076D221 /* NSImageView+Additions.h */,
-				F990630E14BA252A0076D221 /* NSImageView+Additions.m */,
 				F990631914BA38EE0076D221 /* SLSlasher.h */,
 				F990631A14BA38EE0076D221 /* SLSlasher.m */,
-				F92A35E714BB0D9D0006B76A /* NSBitmapImageRep+Additions.h */,
-				F92A35E814BB0D9D0006B76A /* NSBitmapImageRep+Additions.m */,
 				F99062EB14BA17610076D221 /* MainMenu.xib */,
+				F9DDE9CC14BF29B90037E300 /* Categories */,
 				F99062DD14BA17610076D221 /* Supporting Files */,
 			);
 			path = Slasher;
@@ -131,6 +131,19 @@
 				F99062E514BA17610076D221 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F9DDE9CC14BF29B90037E300 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F92A35E714BB0D9D0006B76A /* NSBitmapImageRep+Additions.h */,
+				F92A35E814BB0D9D0006B76A /* NSBitmapImageRep+Additions.m */,
+				F990630D14BA252A0076D221 /* NSImageView+Additions.h */,
+				F990630E14BA252A0076D221 /* NSImageView+Additions.m */,
+				F9DDE9C914BF29A80037E300 /* NSThread+Additions.h */,
+				F9DDE9CA14BF29A80037E300 /* NSThread+Additions.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +218,7 @@
 				F990630F14BA252B0076D221 /* NSImageView+Additions.m in Sources */,
 				F990631B14BA38EE0076D221 /* SLSlasher.m in Sources */,
 				F92A35E914BB0D9D0006B76A /* NSBitmapImageRep+Additions.m in Sources */,
+				F9DDE9CB14BF29A80037E300 /* NSThread+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
