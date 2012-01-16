@@ -128,6 +128,7 @@ static SLMainWindowController *gController;
 	NSString *extension = nil;
 	NSString *nameFormat = nil;
 	
+	// the output format must be one of the five formats that NSBitmapImageRep natively supports
 	     if ([formatStr isEqualToString:@"BMP" ]) { formatType = NSBMPFileType;  extension = @"bmp";  }
 	else if ([formatStr isEqualToString:@"GIF" ]) { formatType = NSGIFFileType;  extension = @"gif";  }
 	else if ([formatStr isEqualToString:@"JPEG"]) { formatType = NSJPEGFileType; extension = @"jpg";  }
@@ -147,38 +148,44 @@ static SLMainWindowController *gController;
 	savePanel.nameFieldStringValue = [mSlasherView.fileName stringByDeletingPathExtension];
 	savePanel.canCreateDirectories = TRUE;
 	
+	// post notification on main thread
+	void (^pnomt) (NSString*, NSObject*, NSObject*) = ^ void (NSString *name, NSObject *key, NSObject *value) {
+		[[NSThread mainThread] performBlock:^{
+			if (key && value)
+				[nc postNotificationName:name object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:value, key, nil]];
+			else
+				[nc postNotificationName:name object:self];
+		}];
+	};
+	
+	// slash the image; write each block to the desired location
+	void (^slash) (NSString*, NSString*) = ^ void (NSString *path, NSString *namePrefix) {
+		NSDate *lastNotification = [NSDate date];
+		
+		pnomt(SLNotificationSlashingStarted, @"total", [NSNumber numberWithInteger:(mColsNum*mRowsNum)]);
+		
+		for (NSUInteger row = 0; row < mRowsNum; ++row) {
+			for (NSUInteger col = 0; col < mColsNum; ++col) {
+				@autoreleasepool {
+					NSString *filename = [NSString stringWithFormat:nameFormat, namePrefix, mRowsNum - 1 - row, col, extension];
+					[[slasher dataForRow:row andCol:col ofType:formatType] writeToFile:[path stringByAppendingPathComponent:filename] atomically:TRUE];
+					
+					if ([lastNotification timeIntervalSinceNow] < 0.5) {
+						lastNotification = [NSDate date];
+						pnomt(SLNotificationSlashingUpdated, @"count", [NSNumber numberWithInteger:((row*mColsNum)+col)]);
+					}
+				}
+			}
+		}
+		
+		pnomt(SLNotificationSlashingStopped, nil, nil);
+	};
+	
 	[savePanel beginSheetModalForWindow:mWindow completionHandler:^ (NSInteger result) {
 		if (NSFileHandlingPanelOKButton == result) {
 			NSString *path = savePanel.directoryURL.path;
 			NSString *namePrefix = savePanel.nameFieldStringValue;
-			
-			[NSThread performBlockInBackground:^{
-				NSDate *lastNotification = [NSDate date];
-				
-				[[NSThread mainThread] performBlock:^{
-					[nc postNotificationName:SLNotificationSlashingStarted object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:(mColsNum*mRowsNum)], @"total", nil]];
-				}];
-				
-				for (NSUInteger row = 0; row < mRowsNum; ++row) {
-					for (NSUInteger col = 0; col < mColsNum; ++col) {
-						@autoreleasepool {
-							NSString *filename = [NSString stringWithFormat:nameFormat, namePrefix, mRowsNum - 1 - row, col, extension];
-							[[slasher dataForRow:row andCol:col ofType:formatType] writeToFile:[path stringByAppendingPathComponent:filename] atomically:TRUE];
-							
-							if ([lastNotification timeIntervalSinceNow] < 0.5) {
-								lastNotification = [NSDate date];
-								[[NSThread mainThread] performBlock:^{
-									[nc postNotificationName:SLNotificationSlashingUpdated object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:((row*mColsNum)+col)], @"count", nil]];
-								}];
-							}
-						}
-					}
-				}
-				
-				[[NSThread mainThread] performBlock:^{
-					[nc postNotificationName:SLNotificationSlashingStopped object:self];
-				}];
-			}];
+			[NSThread performBlockInBackground:^{ slash(path, namePrefix); }];
 		}
 	}];
 }

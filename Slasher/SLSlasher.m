@@ -61,8 +61,14 @@
 #pragma mark - Private
 
 /**
+ * Given a source image in bitmap form along with the stats on the image (bytes per pixel, pixels
+ * per row, etc.) and the target number of rows/columns, initialize an SLSlasherArea for each which
+ * specifies the block's starting bitmap pointer and width/height in pixels. Later on, when we
+ * actually perform the slashing, we can do so image-format-agnostically.
  *
- *
+ * The only assumption is that the image is non-planar; that is, the colors are all interleaved.
+ * The nonPlanarBitmapData() call *supposedly* resolves this dependency, but since I don't have any
+ * planar images to test with, I can only hope that it is bug-free.
  */
 - (void)initializeAreas
 {
