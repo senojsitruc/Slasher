@@ -188,6 +188,9 @@ static SLMainWindowController *gController;
  */
 - (IBAction)doActionImage:(id)sender
 {
+	mRowsStepper.maxValue = mSlasherView.image.size.height;
+	mColsStepper.maxValue = mSlasherView.image.size.width;
+	
 	[self enableDisableControls];
 }
 
