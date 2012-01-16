@@ -161,7 +161,7 @@ static SLMainWindowController *gController;
 				for (NSUInteger row = 0; row < mRowsNum; ++row) {
 					for (NSUInteger col = 0; col < mColsNum; ++col) {
 						@autoreleasepool {
-							NSString *filename = [NSString stringWithFormat:nameFormat, namePrefix, row, col, extension];
+							NSString *filename = [NSString stringWithFormat:nameFormat, namePrefix, mRowsNum - 1 - row, col, extension];
 							[[slasher dataForRow:row andCol:col ofType:formatType] writeToFile:[path stringByAppendingPathComponent:filename] atomically:TRUE];
 							
 							if ([lastNotification timeIntervalSinceNow] < 0.5) {
