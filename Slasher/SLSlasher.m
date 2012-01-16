@@ -147,6 +147,7 @@
 																																				 hasAlpha:mBitmapImage.hasAlpha
 																																				 isPlanar:FALSE
 																																	 colorSpaceName:mBitmapImage.colorSpaceName
+																																		 bitmapFormat:mBitmapImage.bitmapFormat
 																																			bytesPerRow:area->colWidthInBytes
 																																		 bitsPerPixel:mBitmapImage.bitsPerPixel];
 	unsigned char *slicePtr = sliceRep.bitmapData;
