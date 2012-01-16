@@ -191,8 +191,12 @@ static SLMainWindowController *gController;
 {
 	mAlertTxt.hidden = TRUE;
 	
+	// set the max rows/cols to the image's height/width
 	mRowsStepper.maxValue = mSlasherView.image.size.height;
 	mColsStepper.maxValue = mSlasherView.image.size.width;
+	
+	// update the window title with the file name of the active image
+	self.window.title = [@"Slasher - " stringByAppendingString:mSlasherView.fileName];
 	
 	[self enableDisableControls];
 }
