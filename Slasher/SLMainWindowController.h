@@ -18,6 +18,7 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSTextField *alertTxt;
 @property (assign) IBOutlet NSTextField *rowsTxt;
 @property (assign) IBOutlet NSTextField *colsTxt;
 @property (assign) IBOutlet NSStepper *rowsStepper;

@@ -22,6 +22,7 @@ static SLMainWindowController *gController;
 @implementation SLMainWindowController
 
 @synthesize window = mWindow;
+@synthesize alertTxt = mAlertTxt;
 @synthesize rowsTxt = mRowsTxt;
 @synthesize colsTxt = mColsTxt;
 @synthesize rowsStepper = mRowsStepper;
@@ -188,6 +189,8 @@ static SLMainWindowController *gController;
  */
 - (IBAction)doActionImage:(id)sender
 {
+	mAlertTxt.hidden = TRUE;
+	
 	mRowsStepper.maxValue = mSlasherView.image.size.height;
 	mColsStepper.maxValue = mSlasherView.image.size.width;
 	
